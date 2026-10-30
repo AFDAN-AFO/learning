@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PAY &amp; WORK COFFEE MART</title>
+<meta name="description" content="Coffee, tea and bites for people who work. Pay &amp; Work Coffee Mart, Lagos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============ 1. EDIT YOUR COLOURS HERE ============ */
+:root {
+  --bg: #FBFAF6;
+  --surface: #FFFFFF;
+  --text: #241A14;
+  --muted: #6E625A;
+  --line: #E4DED3;
+  --accent: #14f039;      /* danfo yellow: buttons and highlights */
+  --accent-text: #241A14; /* text on accent */
+  --deep: #1F3D33;        /* deep green: menu board and footer */
+  --deep-text: #F4F1E8;
+  --font-display: "Bricolage Grotesque", "Helvetica Neue", Arial, sans-serif;
+  --font-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #17120F; --surface: #211A16; --text: #F3ECE4; --muted: #B3A79C; --line: #3A2F28;
+    --deep: #0F2A22;
+  }
+}
+/* ==================================================== */
+
+* { box-sizing: border-box; margin: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+body { background: var(--bg); color: var(--text); font: 400 1.0625rem/1.6 var(--font-body); -webkit-font-smoothing: antialiased; }
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+a { color: inherit; }
+img { max-width: 100%; display: block; }
+:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.wrap { width: min(1120px, 100% - 2.5rem); margin-inline: auto; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.05; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 800; }
+
+/* Buttons */
+.btn { display: inline-block; padding: .85rem 1.4rem; border-radius: 999px; font-weight: 600; text-decoration: none; border: 2px solid var(--text); cursor: pointer; font-family: inherit; font-size: 1rem; }
+.btn-primary { background: var(--accent); color: var(--accent-text); border-color: var(--accent); }
+.btn-primary:hover { filter: brightness(.95); }
+.btn-ghost { background: transparent; color: var(--text); }
+.btn-ghost:hover { background: var(--text); color: var(--bg); }
+
+/* Header */
+header { position: sticky; top: 0; z-index: 10; background: var(--bg); border-bottom: 1px solid var(--line); padding-top: env(safe-area-inset-top, 0px); }
+.nav { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 1rem; }
+.logo { font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; text-decoration: none; letter-spacing: -0.01em; white-space: nowrap; }
+.logo span { background: var(--accent); color: var(--accent-text); padding: 0 .35em; border-radius: 4px; margin: 0 .1em; }
+nav ul { list-style: none; padding: 0; display: flex; gap: 1.5rem; }
+nav a { text-decoration: none; font-weight: 500; color: var(--muted); }
+nav a:hover { color: var(--text); }
+@media (max-width: 720px) { nav ul { display: none; } }
+
+/* Hero */
+.hero { padding: clamp(2.5rem, 7vw, 5.5rem) 0; }
+.hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(2rem, 5vw, 4rem); align-items: center; }
+.hero h1 { font-size: clamp(2.6rem, 7vw, 5rem); font-weight: 800; }
+.hero p { margin: 1.25rem 0 1.75rem; max-width: 46ch; color: var(--muted); font-size: 1.15rem; }
+.hero .actions { display: flex; flex-wrap: wrap; gap: .75rem; }
+@media (max-width: 860px) { .hero .wrap { grid-template-columns: 1fr; } }
+
+/* Menu board (hero) */
+.board { background: var(--deep); color: var(--deep-text); border-radius: 14px; padding: 1.75rem; border: 6px solid var(--text); box-shadow: 8px 8px 0 var(--accent); }
+.board h2 { font-size: 1.5rem; margin-bottom: 1rem; }
+.board ul { list-style: none; padding: 0; }
+.board li { display: flex; align-items: baseline; gap: .5rem; padding: .55rem 0; }
+.board li::after { content: ""; order: 1; flex: 1; border-bottom: 2px dotted rgba(244,241,232,.35); }
+.board li b { order: 2; font-weight: 600; }
+.board li span:first-child { order: 0; }
+.board small { display: block; margin-top: 1rem; opacity: .75; }
+
+/* Sections */
+section { padding: clamp(3rem, 7vw, 5rem) 0; }
+.section-head { max-width: 56ch; margin-bottom: 2rem; }
+.section-head p { color: var(--muted); margin-top: .75rem; }
+
+/* Menu tabs */
+.tabs { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.5rem; }
+.tab { padding: .55rem 1.1rem; border-radius: 999px; border: 2px solid var(--line); background: transparent; color: var(--text); font: 600 .95rem var(--font-body); cursor: pointer; }
+.tab[aria-selected="true"] { background: var(--text); color: var(--bg); border-color: var(--text); }
+.items { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+.item { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 1.25rem; }
+.item header { all: unset; display: flex; justify-content: space-between; gap: 1rem; font-family: var(--font-display); font-weight: 800; font-size: 1.15rem; }
+.item p { color: var(--muted); font-size: .98rem; margin-top: .4rem; }
+.item .order { margin-top: .9rem; font-size: .9rem; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Pay & Work pass */
+.pass { background: var(--accent); color: var(--accent-text); }
+.pass .wrap { display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center; }
+.pass p { margin-top: .75rem; max-width: 52ch; }
+.pass .btn { border-color: var(--accent-text); background: var(--accent-text); color: var(--accent); }
+@media (max-width: 720px) { .pass .wrap { grid-template-columns: 1fr; } }
+
+/* Visit */
+.visit .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); }
+.visit dl { display: grid; grid-template-columns: auto 1fr; gap: .6rem 1.5rem; }
+.visit dt { font-weight: 600; }
+.visit dd { color: var(--muted); }
+.map { min-height: 260px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); display: grid; place-items: center; color: var(--muted); text-align: center; padding: 1rem; }
+@media (max-width: 720px) { .visit .wrap { grid-template-columns: 1fr; } }
+
+/* Footer */
+footer { background: var(--deep); color: var(--deep-text); padding: 2.5rem 0 calc(2.5rem + env(safe-area-inset-bottom, 0px)); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
+footer a { opacity: .85; }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top">PAY<span>&amp;</span>WORK <small style="font-weight:500">COFFEE MART</small></a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#pass">Work pass</a></li>
+        <li><a href="#visit">Visit</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn-primary" href="#order" data-wa>Order now</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO: edit headline, intro and the board prices -->
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Good coffee. Fast. Back to work.</h1>
+        <p>Freshly brewed coffee, tea and light bites from the team at Pay &amp; Work. Order at the counter, at your desk, or by message.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#menu">See the menu</a>
+          <a class="btn btn-ghost" href="#visit">Find us</a>
+        </div>
+      </div>
+      <aside class="board" aria-label="Today’s favourites">
+        <h2>Today’s favourites</h2>
+        <ul id="board"></ul>
+        <small>Prices in naira. Ask about office orders.</small>
+      </aside>
+    </div>
+  </div>
+
+  <!-- MENU: edit the items in the script at the bottom of this file -->
+  <section id="menu">
+    <div class="wrap">
+      <div class="section-head">
+        <h2>Menu</h2>
+        <p>Everything is made to order. Tap “Order” on any item to message us.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Menu categories" id="tabs"></div>
+      <div class="items" id="items" role="tabpanel"></div>
+    </div>
+  </section>
+
+  <!-- WORK PASS: link the coffee shop to your co-working space -->
+  <section class="pass" id="pass">
+    <div class="wrap">
+      <div>
+        <h2>Coffee and a desk, one price</h2>
+        <p>Add a day pass at the Pay &amp; Work co-working space to any coffee order. Fast Wi-Fi, power and a quiet place to get things done.</p>
+      </div>
+      <a class="btn" href="#order" data-wa data-msg="Hello, I’d like to ask about the coffee and day pass bundle.">Ask about the bundle</a>
+    </div>
+  </section>
+
+  <!-- VISIT -->
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <div>
+        <div class="section-head"><h2>Visit us</h2></div>
+        <dl>
+          <dt>Address</dt><dd>108,Opebi road ikeja, Lagos</dd>
+          <dt>Hours</dt><dd>Mon–Fri 9:00am–6:00pm<br>Sat 10:00am–5:00pm</dd>
+          <dt>Phone</dt><dd><a href="tel:+2349136019372">+234 913 601 9372</a></dd>
+          <dt>Email</dt><dd><a href="mailto:payandwork@gmail.com">payandwork@gmail.com</a></dd>
+        </dl>
+      </div>
+      <!-- Replace this box with a Google Maps embed iframe -->
+      <div class="map"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3963.508613001798!2d3.3634035753145577!3d6.583517893410046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b92692e274af9%3A0x78fd8970a647a137!2s108%20Opebi%20Rd%2C%20Ikeja%2C%20Lagos%20100001%2C%20Lagos!5e0!3m2!1sen!2sng!4v1793196696671!5m2!1sen!2sng" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe></div>
+    </div>
+  </section>
+</main>
+
+<footer id="order">
+  <div class="wrap">
+    <div><strong>PAY &amp; WORK COFFEE MART</strong><br>Lagos, Nigeria</div>
+    <div>
+      <a href="#" data-wa>WhatsApp</a> ·
+      <a href="https://instagram.com/yourhandle">Instagram</a>
+    </div>
+    <div>© <span id="year"></span> Pay &amp; Work</div>
+  </div>
+</footer>
+
+<script>
+/* ============ 2. EDIT YOUR DETAILS HERE ============ */
+const WHATSAPP = "2349136019372"; // phone number, country code first, no + or spaces
+
+const MENU = {
+  "Coffee": [
+    { name: "Americano",  price: 2500, desc: "Double espresso with hot water." },
+    { name: "Latte",      price: 2500, desc: "Espresso with steamed milk." },
+    { name: "Cappuccino", price: 3500, desc: "Espresso, milk and thick foam." },
+    { name: "Black coffee", price: 2000, desc: "Strong black coffee." },
+    { name: "Milky coffee", price: 2500, desc: "Highly milked coffee." },
+    { name: "Iced coffee",price: 3000, desc: "Cold brew over ice." }
+  ],
+  "Tea & cold drinks": [
+    { name: "Ginger tea",   price: 2000, desc: "Fresh ginger, hot water, honey." },
+    { name: "Chapman",      price: 2800, desc: "Chilled, with citrus and bitters." },
+    { name: "Cadbry hot chocolate tea", price: 3500, desc: "3 in one milky tea." },
+    { name: "Hot chocolate",price: 2000, desc: "Hibiscus drink, served cold." }
+
+  ],
+  "Bites": [
+    { name: "Chicken sandwich", price: 4500, desc: "Grilled chicken, lettuce, mayo." },
+    { name: "Meat pie",         price: 1800, desc: "Baked daily." },
+    { name: "Croissant",        price: 2500, desc: "Butter croissant, warmed." }
+  ]
+};
+
+const FAVOURITES = ["Americano", "Latte", "Ginger tea", "Meat pie"]; // names from MENU above
+/* ===================================================== */
+
+const naira = n => "₦" + n.toLocaleString("en-NG");
+const wa = msg => `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+const all = Object.values(MENU).flat();
+
+// Hero board
+const board = document.getElementById("board");
+FAVOURITES.forEach(name => {
+  const it = all.find(i => i.name === name);
+  if (!it) return;
+  board.insertAdjacentHTML("beforeend", `<li><span>${it.name}</span><b>${naira(it.price)}</b></li>`);
+});
+
+// Menu tabs
+const tabs = document.getElementById("tabs");
+const items = document.getElementById("items");
+function show(cat) {
+  [...tabs.children].forEach(t => t.setAttribute("aria-selected", t.dataset.cat === cat));
+  items.innerHTML = MENU[cat].map(i => `
+    <article class="item">
+      <header><span>${i.name}</span><span>${naira(i.price)}</span></header>
+      <p>${i.desc}</p>
+      <a class="order" href="${wa("Hello, I’d like to order: " + i.name)}">Order ${i.name}</a>
+    </article>`).join("");
+}
+Object.keys(MENU).forEach((cat, idx) => {
+  const b = document.createElement("button");
+  b.className = "tab"; b.role = "tab"; b.textContent = cat; b.dataset.cat = cat;
+  b.addEventListener("click", () => show(cat));
+  tabs.appendChild(b);
+  if (idx === 0) show(cat);
+});
+
+// Order links
+document.querySelectorAll("[data-wa]").forEach(a => {
+  a.href = wa(a.dataset.msg || "Hello, I’d like to place an order.");
+});
+document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ 
+ <div class="calculator">
+<h2> SCORE</h2>
+
+ <div class="display">
+    Victor: <input type="number" id="inputField1" placeholder="30">
+    Emma: <input type="number" id="inputField2" placeholder="20">
+    chris: <input type="number" id="inputField3" placeholder="10">
+    <button onclick="calculatesum()">Sum</button>
+     </div>
+
+    <div class="div" id="output">
+   <label for="output">Total:</label>
+    <input type="text" id="total" value="0" readonly>
+
+    </div>
+
+
+    
+
+ </div>
+    
+
+
+<script>
+
+
+
+
+    function calculatesum () {
+
+let Victor  =  Number (document.getElementById('inputField1').value)
+let Emma = Number (document.getElementById('inputField2').value)
+let Chris = Number (document.getElementById('inputField3').value)
+
+let sum =Chris + Emma + Victor;
+document.getElementById('total').value = sum;
+
+}
+</script>
+</body>
+
+</html>
+

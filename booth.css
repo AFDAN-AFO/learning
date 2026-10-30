@@ -1,0 +1,6 @@
+.carousel-inner rounded-5{
+  width: 75%;
+  height: clamp(300px, 50vh, 500px);
+  object-fit: cover;
+  object-position: center;
+}
